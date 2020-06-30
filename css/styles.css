@@ -193,6 +193,16 @@ a {
   color: var(--accent-color);
 }
 
+.current::after {
+  display: block;
+  content: '';
+  margin: 0;
+  padding 0;
+  height: 4px;
+  background-color: var(--accent-color);
+  border-radius: 2px;
+}
+
 .site-nav .item + .item {
   margin-left: 50px;
 }
@@ -222,11 +232,6 @@ a {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-}
-.heros {
-  display: inline-block;
-  align-items: center;
-  justify-content: center;
 }
 
 .hero-title {
@@ -623,10 +628,22 @@ pre {
   border: 1px solid #eeeeee;
 }
 
-.project:hover {
+.project:hover, 
+.project:focus {
   box-shadow: 1px 4px 6px rgba(0, 0, 0, 0.16), 0px 4px 4px rgba(0, 0, 0, 0.06),
     0px 1px 1px rgba(0, 0, 0, 0.12);
 }
+
+.project:hover .project-text, 
+.project:focus .project-text {
+  opacity: 1;
+}
+
+.project:hover .project-description::before, 
+.project:focus .project-description::before {
+  opacity: 1;
+}
+
 .project:nth-child(3n) {
   margin-right: 0;
 }
@@ -645,21 +662,34 @@ pre {
   margin-bottom: 0px;
 }
 
+.project-description {
+  position: relative;
+}
+
+.project-description::before {
+  display: inline-block;
+  position: absolute;
+  content: '';
+  width: 100%;
+  height: 100%;
+  background-color: rgba(33, 150, 243, 0.9);
+  opacity: 0;
+}
+
 .project-text {
   font-style: normal;
   font-weight: 400;
   font-size: 18px;
   line-height: 1.56;
-  margin-top: 0px;
-  margin-bottom: 0px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0px;
   position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  border: 0px;
+  width: 322px;
+  color: var(--white-color);
   padding: 0px;
-  clip: rect(0 0 0 0);
-  overflow: hidden;
+  opacity: 0;
 }
 
 .projects-names {
@@ -689,7 +719,6 @@ pre {
   margin-bottom: 50px;
 }
 .f-img {
-  margin-bottom: 20px;
   display: block;
   max-width: 100%;
   height: auto;
