@@ -15,6 +15,7 @@
   --team-background-color: #f5f4fa;
   --footer-color: #2f303a;
   --icon-color: #afb1b8;
+  --cubic: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 body {
@@ -155,6 +156,7 @@ a {
   font-size: 14px;
   line-height: 1.43;
   letter-spacing: 0.02em;
+  transition: color 250ms var(--cubic);
 }
 .site-nav-ad .link {
   color: var(--main-text-color);
@@ -163,6 +165,7 @@ a {
   font-size: 14px;
   line-height: 1.43;
   letter-spacing: 0.02em;
+  transition: color 250ms var(--cubic);
 }
 
 .link {
@@ -174,11 +177,12 @@ a {
   width: 16px;
   height: 12px;
   margin-right: 5px;
-  color: var(--main-text-color);
+  fill: var(--main-text-color);
+  transition: fill 250ms var(--cubic);
 }
 
-.link:hover,
-.link:focus {
+.link:hover .e-t-icon,
+.link:focus .e-t-icon {
   fill: var(--accent-color);
 }
 .site-nav .link:hover,
@@ -193,12 +197,19 @@ a {
   color: var(--accent-color);
 }
 
+.link {
+  position: relative;
+}
+
 .current::after {
+  position: absolute;
   display: block;
   content: '';
   margin: 0;
-  padding 0;
+  width: 100%;
   height: 4px;
+  left: 0;
+  bottom: 0;
   background-color: var(--accent-color);
   border-radius: 2px;
 }
@@ -271,6 +282,8 @@ a {
   display: inline-block;
   text-align: center;
   padding: 6px 22px;
+  transition: color 250ms var(--cubic);
+  transition: background-color 250ms var(--cubic);
 }
 .button-check {
   display: flex;
@@ -473,6 +486,7 @@ pre {
   border-radius: 50%;
   background-color: var(--white-color);
   fill: var(--icon-color);
+  transition: background-color 250ms var(--cubic);
 }
 
 .socialnets:hover,
@@ -499,6 +513,7 @@ pre {
   height: 90px;
   background-color: var(--white-color);
   fill: var(--icon-color);
+  transition: fill 250ms var(--cubic);
 }
 .clients-site-link:hover,
 .clients-site-link:focus {
@@ -551,6 +566,7 @@ pre {
   font-weight: 400;
   font-size: 14px;
   line-height: 24px;
+  transition: color 250ms var(--cubic);
 }
 
 .f-site-nav .f-link:hover,
@@ -580,6 +596,7 @@ pre {
   border-radius: 50%;
   background-color: rgba(255, 255, 255, 10%);
   fill: var(--white-color);
+  transition: background-color 250ms var(--cubic);
 }
 
 .f-socialnet-link:hover,
@@ -628,20 +645,20 @@ pre {
   border: 1px solid #eeeeee;
 }
 
-.project:hover, 
+.project:hover,
 .project:focus {
   box-shadow: 1px 4px 6px rgba(0, 0, 0, 0.16), 0px 4px 4px rgba(0, 0, 0, 0.06),
     0px 1px 1px rgba(0, 0, 0, 0.12);
 }
 
-.project:hover .project-text, 
+.project:hover .project-text,
 .project:focus .project-text {
   opacity: 1;
 }
 
-.project:hover .project-description::before, 
-.project:focus .project-description::before {
-  opacity: 1;
+.project:hover .project-overlay,
+.project:focus .project-overlay {
+  transform: translateY(0);
 }
 
 .project:nth-child(3n) {
@@ -664,16 +681,18 @@ pre {
 
 .project-description {
   position: relative;
+  overflow: hidden;
 }
 
-.project-description::before {
-  display: inline-block;
+.project-overlay {
   position: absolute;
-  content: '';
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   background-color: rgba(33, 150, 243, 0.9);
-  opacity: 0;
+  transform: translateY(100%);
+  transition: transform 250ms var(--cubic);
 }
 
 .project-text {
@@ -684,6 +703,7 @@ pre {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+
   margin: 0px;
   position: absolute;
   width: 322px;
