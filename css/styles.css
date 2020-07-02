@@ -282,8 +282,8 @@ a {
   display: inline-block;
   text-align: center;
   padding: 6px 22px;
-  transition: color 250ms var(--cubic);
-  transition: background-color 250ms var(--cubic);
+  transition: color 250ms var(--cubic), background-color 250ms var(--cubic);
+  transition: ;
 }
 .button-check {
   display: flex;
@@ -383,18 +383,18 @@ a {
 .img-wawd {
   margin-left: 30px;
   width: calc((100% - 30px * 2) / 3);
+  display: block;
   position: relative;
   margin-bottom: 0;
 }
 .wawd-position-img {
   position: relative;
-  display: block;
   max-width: 100%;
   height: auto;
 }
 .wawd-position {
   position: absolute;
-  bottom: 2px;
+  bottom: 0;
   left: 0;
   right: 0;
   padding: 0;
@@ -513,7 +513,7 @@ pre {
   height: 90px;
   background-color: var(--white-color);
   fill: var(--icon-color);
-  transition: fill 250ms var(--cubic);
+  transition: fill 250ms var(--cubic), border 250ms var(--cubic);
 }
 .clients-site-link:hover,
 .clients-site-link:focus {
