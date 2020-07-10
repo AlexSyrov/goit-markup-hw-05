@@ -15,6 +15,19 @@
     <link rel="stylesheet" href="./css/styles.css" />
   </head>
   <body>
+    <div class="backdrop is-hidden" data-modal>
+      <div class="modal">
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo
+          assumenda repellat, ut tempora fuga nesciunt, fugit modi libero vel,
+          rerum eligendi? Beatae ut tempora asperiores consequatur! Non autem
+          nobis enim?
+        </p>
+        <button class="button-close" data-modal-close>
+          Закрыть сделать крестик
+        </button>
+      </div>
+    </div>
     <!--Шапка-->
     <header class="head-container">
       <!--Навигация-->
@@ -65,7 +78,9 @@
             Эффективные решения для вашего бизнеса
           </h1>
 
-          <a href="/" class="button-secondary">Заказать услугу </a>
+          <button class="button-secondary" type="button" data-modal-open>
+            Заказать услугу
+          </button>
         </div>
       </section>
 
@@ -586,12 +601,24 @@
           </ul>
         </section>
 
-        <div class="subscribe">
+        <div>
           <p class="conecting-title">Подпишитесь на рассылку</p>
+          <form>
+            <label class="form-field">
+              <input type="email" placeholder="E-mail" />
+            </label>
+            <button type="submit" class="button-submit">
+              Подписаться
+              <svg width="24px" height="24px">
+                <use href="./images/webstudio.svg#icon-icon_send"></use>
+              </svg>
+            </button>
+          </form>
         </div>
       </div>
 
       <p class="developed">2020 | Developed by GoIT Students</p>
     </footer>
+    <script src="./js/modal.js"></script>
   </body>
 </html>
