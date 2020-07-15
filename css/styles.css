@@ -292,6 +292,14 @@ a {
 
   background-color: var(--white-color);
 }
+.modal-item {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 23px;
+  text-align: center;
+  color: var(--title-text-color);
+}
 
 .list {
   margin-top: 0;
